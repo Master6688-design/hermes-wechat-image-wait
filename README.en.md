@@ -84,9 +84,7 @@ Hermes's WeChat adapter (`gateway/platforms/weixin.py`) already batches text bri
 
 ## About
 
-Made by Manners Bespoke. Its founder is a bespoke fitter who loves exploring AI. Thank you for your interest and support.
-
-Upstream discussion: NousResearch/hermes-agent #83718.
+Made by Manners Bespoke, whose founder is a bespoke clothier who loves exploring AI. Thank you for your interest and support.
 
 ## License
 

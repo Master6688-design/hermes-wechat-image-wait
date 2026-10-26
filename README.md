@@ -84,8 +84,6 @@ Hermes 的微信接口（`gateway/platforms/weixin.py`）对文字本来就有�
 
 图文合发出自 Manners Bespoke。主理人是一位热衷研究 AI 的量身师。感谢关注和支持。
 
-上游相关讨论：NousResearch/hermes-agent #83718。
-
 ## 许可
 
 MIT。可以自由使用、修改、转发，请保留版权声明。
