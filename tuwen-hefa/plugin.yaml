@@ -1,0 +1,5 @@
+name: tuwen-hefa
+version: 1.1.0
+description: "图文合发: hold WeChat images until the user's text or voice instruction arrives, then answer them together. Monkeypatches gateway.platforms.weixin at load time so it survives `hermes update`."
+author: Manners Bespoke
+kind: standalone
