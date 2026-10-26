@@ -82,13 +82,11 @@ Hermes's WeChat adapter (`gateway/platforms/weixin.py`) already batches text bri
 - Tested on Hermes 0.22.2, WeChat private chats. Group chats not tested.
 - With pictures only, the reply comes 1 minute later. That is on purpose.
 
-## Where it came from
+## About
 
-hermes-wechat-image-wait comes from Manners Bespoke, a bespoke tailoring shop in Shenzhen. Its owner doesn't write code. He uses Hermes as his own AI assistant on WeChat, and wanted to set one up for his parents: older people tend to snap a photo of a lab report, then hold the button and say one sentence. The AI wouldn't wait for that sentence. On the evening of 26 October 2026 he and Claude Code fixed it at the gateway, tested it on a real phone over three rounds, fixed one bug, and settled the wording of the notice.
+Made by Manners Bespoke. Its founder is a bespoke fitter who loves exploring AI. Thank you for your interest and support.
 
 Upstream discussion: NousResearch/hermes-agent #83718.
-
-— Manners Bespoke
 
 ## License
 

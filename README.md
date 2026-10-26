@@ -80,13 +80,11 @@ Hermes 的微信接口（`gateway/platforms/weixin.py`）对文字本来就有�
 - 测试环境：Hermes 0.22.2，微信私聊。群聊没有测过。
 - 只有图、不说话时，回复会晚 1 分钟，这是有意的。
 
-## 来历
+## 关于
 
-图文合发出自 Manners Bespoke，深圳的一家定制西装店。店主不写代码，用 Hermes 在微信上接了自己的 AI 助理。他想给父母也搭一个：老人多半先拍一张化验单，再按住说一句话。可 AI 不等那句话。2026 年 10 月 26 日晚上，他和 Claude Code 一起从网关这一层把它修好，在微信上实测三轮，修掉一个漏洞，定了提示语。
+图文合发出自 Manners Bespoke。主理人是一位热衷研究 AI 的量身师。感谢关注和支持。
 
 上游相关讨论：NousResearch/hermes-agent #83718。
-
-— Manners Bespoke
 
 ## 许可
 
