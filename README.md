@@ -1,4 +1,4 @@
-# 图文合发（tuwen-hefa）
+# 图文合发（hermes-wechat-image-wait）
 
 **让微信里的 AI 等你把图发完、把话说完，再一起回答。** 一个 Hermes 插件。
 
@@ -30,11 +30,11 @@ AI 看不到网关代发的话，所以插件把这批图交给 AI 时，会在�
 
 ## 安装（约 5 分钟）
 
-1. 把本仓库的 `tuwen-hefa` 文件夹放到 `~/.hermes/plugins/` 下。
-2. 先备份 `~/.hermes/config.yaml`，然后在 `plugins:` 下的 `enabled:` 列表里加一行 `- tuwen-hefa`。
+1. 把本仓库的 `hermes-wechat-image-wait` 文件夹放到 `~/.hermes/plugins/` 下。
+2. 先备份 `~/.hermes/config.yaml`，然后在 `plugins:` 下的 `enabled:` 列表里加一行 `- hermes-wechat-image-wait`。
 3. 运行 `hermes gateway restart`。重启会等正在进行的回复说完再停，最好挑没人在聊的时候。
 4. 到 `~/.hermes/logs/` 里找这一行，看到就是装好了：
-   `tuwen-hefa: patch applied (wait 60s, after text 2s, follow-up 4s, notice on, skip none)`
+   `hermes-wechat-image-wait: patch applied (wait 60s, after text 2s, follow-up 4s, notice on, skip none)`
    同时确认 `✓ weixin connected`。
 5. 在微信上试三种发法：一张图后回一句「没有了」；几张图之后再打字；只发图不说话，等满 1 分钟。
 

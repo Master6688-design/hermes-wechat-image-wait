@@ -1,4 +1,4 @@
-# tuwen-hefa (图文合发)
+# hermes-wechat-image-wait (图文合发)
 
 **Make your WeChat AI wait until you've sent all your pictures and said what you want, then answer once.** A Hermes plugin.
 
@@ -32,11 +32,11 @@ The AI never sees messages the gateway sends on its behalf, so when the batch is
 
 ## Install (about 5 minutes)
 
-1. Put this repository's `tuwen-hefa` folder in `~/.hermes/plugins/`.
-2. Back up `~/.hermes/config.yaml`, then add `- tuwen-hefa` to the `enabled:` list under `plugins:`.
+1. Put this repository's `hermes-wechat-image-wait` folder in `~/.hermes/plugins/`.
+2. Back up `~/.hermes/config.yaml`, then add `- hermes-wechat-image-wait` to the `enabled:` list under `plugins:`.
 3. Run `hermes gateway restart`. It waits for running replies to finish; pick a quiet moment.
 4. In `~/.hermes/logs/`, look for:
-   `tuwen-hefa: patch applied (wait 60s, after text 2s, follow-up 4s, notice on, skip none)`
+   `hermes-wechat-image-wait: patch applied (wait 60s, after text 2s, follow-up 4s, notice on, skip none)`
    and `✓ weixin connected`.
 5. On WeChat, try three ways: one picture then "that's all"; several pictures then a question; pictures only, waiting the full minute.
 
@@ -84,7 +84,7 @@ Hermes's WeChat adapter (`gateway/platforms/weixin.py`) already batches text bri
 
 ## Where it came from
 
-tuwen-hefa comes from Manners Bespoke, a bespoke tailoring shop in Shenzhen. Its owner doesn't write code. He uses Hermes as his own AI assistant on WeChat, and wanted to set one up for his parents: older people tend to snap a photo of a lab report, then hold the button and say one sentence. The AI wouldn't wait for that sentence. On the evening of 26 October 2026 he and Claude Code fixed it at the gateway, tested it on a real phone over three rounds, fixed one bug, and settled the wording of the notice.
+hermes-wechat-image-wait comes from Manners Bespoke, a bespoke tailoring shop in Shenzhen. Its owner doesn't write code. He uses Hermes as his own AI assistant on WeChat, and wanted to set one up for his parents: older people tend to snap a photo of a lab report, then hold the button and say one sentence. The AI wouldn't wait for that sentence. On the evening of 26 October 2026 he and Claude Code fixed it at the gateway, tested it on a real phone over three rounds, fixed one bug, and settled the wording of the notice.
 
 Upstream discussion: NousResearch/hermes-agent #83718.
 

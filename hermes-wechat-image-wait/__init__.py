@@ -1,4 +1,4 @@
-"""tuwen-hefa（图文合发）: hold WeChat images until the instruction arrives.
+"""hermes-wechat-image-wait（图文合发）: hold WeChat images until the instruction arrives.
 
 WeChat cannot send a picture and its caption as one message, and upstream only
 debounces TEXT, so the agent starts answering a lone image before the user has
@@ -37,8 +37,8 @@ import logging
 import time
 from pathlib import Path
 
-logger = logging.getLogger("tuwen_hefa")
-_MARK = "_ec600_tuwen_hefa_patched"
+logger = logging.getLogger("hermes_wechat_image_wait")
+_MARK = "_hermes_wechat_image_wait_patched"
 _FLUSHED = "_iw_flushed"
 _SHORT = "_iw_follow_up"
 _NOTIFIED = "_iw_notified"
@@ -63,7 +63,7 @@ def _load_settings() -> dict:
         try:
             settings.update(json.loads(path.read_text(encoding="utf-8")))
         except Exception as exc:
-            logger.warning("tuwen-hefa: settings.json unreadable, using defaults (%s)", exc)
+            logger.warning("hermes-wechat-image-wait: settings.json unreadable, using defaults (%s)", exc)
     return settings
 
 
@@ -106,7 +106,7 @@ def apply_patch() -> str:
     orig = {n: getattr(adapter, n, None) for n in names}
     if not all(callable(f) for f in orig.values()):
         msg = "TARGETS MISSING (upstream refactor?) - image wait NOT active, images dispatch immediately"
-        logger.warning("tuwen-hefa: %s", msg)
+        logger.warning("hermes-wechat-image-wait: %s", msg)
         return msg
     skip = set(S.get("skip_profiles") or [])
 
@@ -122,7 +122,7 @@ def apply_patch() -> str:
             ok = getattr(result, "success", True)
         except Exception as exc:
             ok = False
-            logger.warning("tuwen-hefa: notice not sent (%s)", exc)
+            logger.warning("hermes-wechat-image-wait: notice not sent (%s)", exc)
         setattr(event, _NOTIFIED, bool(ok))
 
     @functools.wraps(orig["handle_message"])
@@ -165,7 +165,7 @@ def apply_patch() -> str:
             if getattr(event, _NOTIFIED, False):
                 note = _note_for(event)
                 event.text = f"{note}\n{event.text}" if (event.text or "").strip() else note
-            logger.info("tuwen-hefa: dispatching %d image(s) with %d chars of text",
+            logger.info("hermes-wechat-image-wait: dispatching %d image(s) with %d chars of text",
                         sum(1 for m in event.media_types if str(m).startswith("image/")), len(event.text or ""))
         elif event.message_type == MessageType.TEXT and (event.text or "").strip():
             _last_text(self)[key] = time.monotonic()
@@ -175,11 +175,11 @@ def apply_patch() -> str:
     adapter._text_batch_delay_for = _text_batch_delay_for
     adapter._dispatch_text_batch = _dispatch_text_batch
     setattr(adapter, _MARK, True)
-    logger.info("tuwen-hefa: patch applied (wait %.0fs, after text %.0fs, follow-up %.0fs, notice %s, skip %s)",
+    logger.info("hermes-wechat-image-wait: patch applied (wait %.0fs, after text %.0fs, follow-up %.0fs, notice %s, skip %s)",
                 S["image_wait_seconds"], S["after_text_seconds"], S["follow_up_seconds"],
                 "on" if S["notice"] else "off", sorted(skip) or "none")
     return "patched"
 
 
 def register(ctx) -> None:
-    logger.info("tuwen-hefa: %s", apply_patch())
+    logger.info("hermes-wechat-image-wait: %s", apply_patch())
